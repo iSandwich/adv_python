@@ -17,7 +17,6 @@ class TestPack(unittest.TestCase):
     def test_delete_doc(self):
         before_len = len(self.docs)
         with patch('new_template.input', return_value='10006'):
-            documents, directories = self.docs, self.dirs
             new_template.delete_doc()
         after_len = len(self.docs)
         self.assertLess(after_len, before_len)
