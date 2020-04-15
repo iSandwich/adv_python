@@ -9,7 +9,7 @@ class TestPack(unittest.TestCase):
     #     self.docs, self.dirs = new_template.program_start()
     #     with patch('new_template.program_start', return_value=(self.docs, self.dirs)):
     #         with patch('new_template.input', return_value='q'):
-    #             catalog.interface()
+    #             new_template.interface()
 
     def setUp(self):
         self.docs, self.dirs = new_template.program_start()
