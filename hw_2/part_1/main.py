@@ -6,16 +6,16 @@ class country_list:
 
     def __init__(self, path):
         self.path = path
-        with open('countries.json') as input_file:
-            self.data = dict(json.load(input_file))
+        with open(self.path, encoding='utf-8') as input_file:
+            self.data = list(json.load(input_file))
 
     def __iter__(self):
         return self
 
     def __next__(self):
-        if self.index != len(self.data.items()):
-            country = self.data[str(self.index)]
-            link = 'https://ru.wikipedia.org/wiki/' + country
+        if self.index != len(self.data):
+            country = self.data[self.index]['name']['common'].replace(' ', '_')
+            link = 'https://en.wikipedia.org/wiki/' + country
             self.index += 1
             self.output[country] = link
         else:
